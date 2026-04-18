@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0A0A0A;
+  --foreground: #F8FAFC;
+  --primary: #DC143C;
+  --primary-foreground: #FFFFFF;
+  --secondary: #1A1A1A;
+  --secondary-foreground: #E2E8F0;
+  --accent: #F59E0B;
+  --accent-foreground: #0A0A0A;
+  --muted: #374151;
+  --muted-foreground: #9CA3AF;
+  --card: #141414;
+  --card-foreground: #F1F5F9;
+  --border: rgba(255,255,255,0.1);
+  --input: #1F2937;
+  --ring: #DC143C;
+  --radius: 0.75rem;
+  --font-sans: 'DM Sans', sans-serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+  }
+}
+
+@keyframes scrollBlur {
+  0% {
+    filter: blur(0px) brightness(1);
+    transform: scale(1);
+  }
+  100% {
+    filter: blur(20px) brightness(0.3);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+@keyframes slideInBlur {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0px);
+  }
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0px);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(220, 20, 60, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(220, 20, 60, 0); }
+}
+
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  .animate-slide-in-blur {
+    animation: slideInBlur 1.2s ease-out forwards;
+  }
+  .animate-fade-in-slide {
+    animation: fadeInSlide 0.8s ease-out forwards;
+  }
+  .animate-fade-in-scale {
+    animation: fadeInScale 0.8s ease-out forwards;
+  }
+  .animate-fade-slide-in {
+    animation: fadeSlideIn 1s ease-out forwards;
+  }
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .glass-card-hover {
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  .glass-card-hover:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  .text-gradient-crimson {
+    background: linear-gradient(135deg, #DC143C 0%, #FF6B6B 50%, #F59E0B 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .shimmer-loading {
+    background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  .pulse-glow {
+    animation: pulse-glow 2s infinite;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
